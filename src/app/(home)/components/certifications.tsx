@@ -4,26 +4,38 @@ const CERTIFICATIONS = [
   {
     title: "Frontend Developer (React)",
     provider: "HackerRank",
-    link: "https://www.hackerrank.com/certificates/48a6aa289176",
+    link: "https://www.hackerrank.com/certificates/iframe/48a6aa289176",
     date: "June 2025",
   },
   {
     title: "JavaScript (Intermediate)",
     provider: "HackerRank",
-    link: "https://www.hackerrank.com/certificates/1bc2c98c0cc3",
+    link: "https://www.hackerrank.com/certificates/iframe/1bc2e98c0cc3",
     date: "June 2025",
   },
   {
     title: "CSS (Basic)",
     provider: "HackerRank",
-    link: "https://www.hackerrank.com/certificates/a00089cfab74",
+    link: "https://www.hackerrank.com/certificates/iframe/a00089cfab74",
     date: "June 2025",
   },
   {
     title: "SQL (Intermediate)",
     provider: "HackerRank",
-    link: "https://www.hackerrank.com/certificates/a0dbbb4da1f1",
+    link: "https://www.hackerrank.com/certificates/iframe/a0dbbb4da1f1",
     date: "June 2025",
+  },
+  {
+    title: "Node.js (Intermediate)",
+    provider: "HackerRank",
+    link: "https://www.hackerrank.com/certificates/iframe/5698a69285a0",
+    date: "September 2025",
+  },
+  {
+    title: "Problem Solving (Intermediate)",
+    provider: "HackerRank",
+    link: "https://www.hackerrank.com/certificates/iframe/ebd60b2fc7cf",
+    date: "September 2025",
   },
 ];
 

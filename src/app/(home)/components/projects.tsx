@@ -17,13 +17,13 @@ const PROJECTS = [
     title: "SportMate",
     description:
       "A comprehensive fitness tracking and sports recommendation platform featuring AI-powered workout suggestions, progress logging, and personal trainer booking integration.",
-    link: "https://github.com/RahmadAmri/SportMate",
+    link: "https://ip-rahmadamri.web.app/login",
   },
   {
     title: "FoxQuiz",
     description:
       "A sophisticated real-time multiplayer quiz application featuring AI-powered question generation, live gameplay mechanics, and comprehensive user management systems built with modern full-stack technologies.",
-    link: "https://github.com/RahmadAmri/FoxQuiz",
+    link: "https://gp-dio.web.app/",
   },
   {
     title: "FlightHub",
