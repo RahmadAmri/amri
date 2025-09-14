@@ -7,7 +7,7 @@ type Project = {
   title: string;
   description: string;
   link: string;
-  image: string; // from /public/assets
+  image: string;
   tags?: string[];
 };
 
