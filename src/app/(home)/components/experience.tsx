@@ -64,11 +64,11 @@ export default function Experience() {
         {EXPERIENCES.map((exp, idx) => (
           <div
             key={exp.company + exp.role}
-            className="group flex gap-4 rounded-lg border p-3 hover:bg-muted/30 transition-colors"
+            className="group flex flex-col sm:flex-row gap-3 sm:gap-4 rounded-lg border p-3 sm:p-4 hover:bg-muted/30 transition-colors"
           >
             {/* Logo (hover target) */}
             <div
-              className="relative h-16 w-16 md:h-20 md:w-20 shrink-0 overflow-hidden rounded-lg ring-1 ring-border"
+              className="relative h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 shrink-0 overflow-hidden rounded-lg ring-1 ring-border mx-auto sm:mx-0"
               onMouseEnter={() => setHoveredIdx(idx)}
               onMouseLeave={() => setHoveredIdx(null)}
               onFocus={() => setHoveredIdx(idx)}
@@ -106,7 +106,7 @@ export default function Experience() {
 
             {/* Details */}
             <div className="flex-1 space-y-2">
-              <div className="flex flex-wrap items-center gap-x-2 text-sm">
+              <div className="flex flex-col xs:flex-row flex-wrap xs:items-center gap-y-0.5 gap-x-2 text-sm text-center sm:text-left">
                 <span className="font-medium">{exp.role}</span>
                 <span className="text-muted-foreground">· {exp.company}</span>
                 {exp.location && (
@@ -116,18 +116,18 @@ export default function Experience() {
                 )}
               </div>
 
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground text-center sm:text-left">
                 {exp.start} – {exp.end}
               </p>
 
-              {/* Bullets: visible only when hovering the logo */}
+              {/* Bullets: always visible on mobile; hover reveal on md+ */}
               <ul
-                className={[
-                  "ml-5 list-disc text-sm space-y-1 transition-all duration-200",
-                  hoveredIdx === idx
-                    ? "opacity-100 max-h-[600px]"
-                    : "opacity-0 max-h-0 overflow-hidden pointer-events-none",
-                ].join(" ")}
+                className={`ml-5 list-disc text-sm space-y-1 md:transition-all md:duration-200
+                  ${
+                    hoveredIdx === idx
+                      ? "md:opacity-100 md:max-h-[600px]"
+                      : "md:opacity-0 md:max-h-0 md:overflow-hidden md:pointer-events-none"
+                  }`}
               >
                 {exp.bullets.map((b) => (
                   <li key={b}>{b}</li>
@@ -135,11 +135,11 @@ export default function Experience() {
               </ul>
 
               {exp.technologies && exp.technologies.length > 0 && (
-                <ul className="flex flex-wrap gap-2">
+                <ul className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
                   {exp.technologies.map((t) => (
                     <li
                       key={t}
-                      className="bg-muted px-2 py-1 rounded text-[10px] tracking-wide"
+                      className="bg-muted px-2 py-0.5 rounded text-[10px] tracking-wide"
                     >
                       {t}
                     </li>
