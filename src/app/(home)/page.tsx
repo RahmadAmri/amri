@@ -1,11 +1,11 @@
 import About from "./components/about";
+import { AvatarImage } from "./components/avatar-image";
 import Certifications from "./components/certifications";
 import Education from "./components/education";
 import Experience from "./components/experience";
 import Header from "./components/header";
 import Projects from "./components/projects";
 import Skills from "./components/skills";
-import { AvatarImage } from "./components/avatar-image"; // added
 
 export default function HomePage() {
   return (
