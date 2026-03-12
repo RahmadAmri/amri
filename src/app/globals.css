@@ -136,3 +136,101 @@
     @apply text-xs md:text-sm;
   }
 }
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection highlight */
+::selection {
+  background: oklch(0.488 0.243 264.376 / 30%);
+}
+
+.dark ::selection {
+  background: oklch(0.488 0.243 264.376 / 40%);
+}
+
+/* Subtle gradient background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% -20%,
+    oklch(0.488 0.243 264.376 / 5%),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.dark body::before {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% -20%,
+    oklch(0.488 0.243 264.376 / 8%),
+    transparent 70%
+  );
+}
+
+/* Skill pill hover animation */
+.skill-pill {
+  transition: all 0.2s ease;
+}
+.skill-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px oklch(0 0 0 / 10%);
+}
+.dark .skill-pill:hover {
+  box-shadow: 0 2px 8px oklch(1 0 0 / 8%);
+}
+
+/* Section divider glow */
+.section-title {
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.488 0.243 264.376 / 40%),
+    transparent
+  );
+}
+
+/* Card hover lift */
+.card-hover {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px oklch(0 0 0 / 8%);
+}
+.dark .card-hover:hover {
+  box-shadow: 0 8px 24px oklch(1 0 0 / 5%);
+}
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid oklch(0.488 0.243 264.376);
+  outline-offset: 2px;
+}
+
+/* Footer gradient line */
+.footer-gradient {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.488 0.243 264.376 / 30%),
+    transparent
+  );
+  height: 1px;
+}
