@@ -2,65 +2,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-type Project = {
-  title: string;
-  description: string;
-  link: string;
-  image: string;
-  tags?: string[];
-};
-
-const PROJECTS: Project[] = [
-  {
-    title: "iCircle",
-    description:
-      "E‑commerce platform for Apple products with catalog, auth, and wishlist.",
-    link: "https://i-circle.vercel.app/",
-    image: "iCircle.png",
-    tags: ["Next.js", "Stripe", "Auth"],
-  },
-  {
-    title: "Latako",
-    description:
-      "Construction marketplace with modern landing, product listing, and content sections.",
-    link: "https://latako.id/",
-    image: "Latako.png",
-    tags: ["Next.js", "Tailwind CSS", "Lucide React"],
-  },
-  {
-    title: "SportMate",
-    description:
-      "Fitness tracking & sports recommendation app with AI suggestions and trainer booking.",
-    link: "https://ip-rahmadamri.web.app/login",
-    image: "SportMate.png",
-    tags: ["AI", "Firebase", "Scheduling"],
-  },
-  {
-    title: "FoxQuiz",
-    description:
-      "Real‑time multiplayer quiz with AI question generation and user management.",
-    link: "https://gp-dio.web.app/",
-    image: "FoxQuiz.png",
-    tags: ["Realtime", "AI", "Full‑stack"],
-  },
-  {
-    title: "FlightHub",
-    description:
-      "Flight booking system with seat availability, transactions, and PDF reporting.",
-    link: "https://github.com/RahmadAmri/FlightHub",
-    image: "FlightHub.png",
-    tags: ["Node.js", "Reports", "Transactions"],
-  },
-  {
-    title: "Reddit",
-    description:
-      "React Native social platform with auth, post creation and real‑time interactions.",
-    link: "https://github.com/RahmadAmri/Reddit",
-    image: "Reddit.png",
-    tags: ["React Native", "Realtime", "Auth"],
-  },
-];
+import { PROJECTS } from "@/lib/config";
 
 export default function Projects() {
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -75,7 +17,7 @@ export default function Projects() {
 
   return (
     <section className="flex flex-col gap-3">
-      <div className="flex items-center justify-between border-b border-foreground pb-1">
+      <div className="section-title flex items-center justify-between border-b border-foreground pb-1">
         <p className="font-semibold">Projects</p>
         <div className="flex gap-1">
           <button
@@ -99,72 +41,73 @@ export default function Projects() {
         ref={scrollerRef}
         className="relative -mx-6 md:-mx-12 px-6 md:px-12 overflow-x-auto"
       >
-        <ul className="flex gap-6 py-2 snap-x snap-mandatory">
+        <ul className="flex snap-x snap-mandatory gap-4 py-2">
           {PROJECTS.map((p, i) => (
             <li
               key={p.title}
               data-project-card
-              className="group relative snap-start w-[250px] sm:w-[300px] md:w-[340px] flex-shrink-0"
+              className="group relative w-[290px] flex-shrink-0 snap-start sm:w-[360px]"
             >
-              <Link
-                href={p.link}
-                target="_blank"
-                className="block relative h-[360px] rounded-lg overflow-hidden ring-1 ring-border"
-              >
-                {/* Image */}
-                <Image
-                  src={`/assets/${p.image}`}
-                  alt={p.title}
-                  fill
-                  sizes="(max-width:768px) 250px, 340px"
-                  className="object-cover"
-                  priority={i === 0}
-                />
+              <div className="card-hover flex min-h-[360px] flex-col overflow-hidden rounded-xl border bg-card/60">
+                <div className="relative h-36 overflow-hidden border-b bg-muted/40">
+                  {p.image ? (
+                    <Image
+                      src={`/assets/${p.image}`}
+                      alt={`${p.title} preview`}
+                      fill
+                      sizes="(max-width:768px) 290px, 360px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      priority={i === 0}
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center bg-linear-to-br from-blue-500/20 via-background to-cyan-400/20">
+                      <span className="text-4xl font-semibold tracking-tighter text-foreground/70">
+                        {p.title.slice(0, 2)}
+                      </span>
+                    </div>
+                  )}
+                  <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/60 px-2.5 py-1 text-[10px] font-medium text-white">
+                    {p.period}
+                  </span>
+                </div>
 
-                {/* Always-visible title badge (top-left) */}
-                <span className="absolute top-2 left-2 z-10 text-[11px] font-medium px-2 py-1 rounded bg-black/60 text-white/90 border border-white/10">
-                  {p.title}
-                </span>
-
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
-
-                {/* Hover content */}
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 p-4 opacity-0 translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0">
-                  <p className="text-[11px] leading-snug text-white/90">
-                    {p.description}
-                  </p>
-                  <div className="mt-3 flex items-center gap-2">
-                    {p.tags?.slice(0, 3).map((t) => (
+                <div className="flex flex-1 flex-col p-4">
+                  <div>
+                    <h3 className="font-semibold">{p.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                      {p.description}
+                    </p>
+                  </div>
+                  <ul className="mt-3 flex-1 space-y-1.5 text-xs leading-relaxed text-muted-foreground">
+                    {p.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-2">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-blue-500" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {p.tags.map((tag) => (
                       <span
-                        key={t}
-                        className="text-[10px] px-2 py-0.5 rounded bg-white/10 text-white/80"
+                        key={tag}
+                        className="rounded-full bg-muted px-2.5 py-1 text-[10px]"
                       >
-                        {t}
+                        {tag}
                       </span>
                     ))}
                   </div>
-                  <span className="mt-3 inline-flex items-center gap-1 rounded bg-white/90 text-black text-xs font-medium px-3 py-1">
-                    Visit Project
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="opacity-80"
+                  {p.link ? (
+                    <Link
+                      href={p.link}
+                      target="_blank"
+                      className="mt-4 inline-flex w-fit items-center gap-1 text-xs font-medium text-link hover:underline"
                     >
-                      <path
-                        d="M7 17L17 7M17 7H9M17 7v8"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
+                      View project
+                      <span aria-hidden="true">↗</span>
+                    </Link>
+                  ) : null}
                 </div>
-              </Link>
+              </div>
             </li>
           ))}
         </ul>

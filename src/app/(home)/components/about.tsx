@@ -5,9 +5,10 @@ export default function About() {
         <strong>About</strong>
       </p>
       <p>
-        I’m a certified Full-Stack JavaScript Developer with a strong foundation
-        in web development and modern JavaScript frameworks. I enjoy turning
-        complex problems into elegant, efficient code and building.
+        Full-Stack JavaScript Developer with professional experience using
+        React, Next.js, Node.js, and PostgreSQL. I build offline-capable POS
+        workflows, member registration systems, and business directories with
+        REST APIs, authentication, and automated PDF generation.
       </p>
     </div>
   );

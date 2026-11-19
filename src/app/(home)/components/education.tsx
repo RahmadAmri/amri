@@ -3,48 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-type EducationItem = {
-  school: string;
-  program: string;
-  location: string;
-  start: string;
-  end: string;
-  bullets: string[];
-  logo?: string;
-  link?: string;
-  extraLinks?: { label: string; url: string }[];
-};
-
-const EDUCATIONS: EducationItem[] = [
-  {
-    school: "Hacktiv8",
-    program: "Full Stack JavaScript Immersive Program",
-    location: "Jakarta, Indonesia",
-    start: "Jan 2025",
-    end: "Jul 2025",
-    bullets: [
-      "Full‑time immersive training in modern JavaScript (frontend & backend).",
-    ],
-    logo: "Hacktiv8.png",
-    link: "https://hacktiv8.com",
-    extraLinks: [
-      {
-        label: "Transcript",
-        url: "https://job-portal-manual.s3.us-east-1.amazonaws.com/Transcript+-+HCK-83+-+2025+-+Rahmad+Maulidi+Amri.pdf",
-      },
-    ],
-  },
-  {
-    school: "MAN 2 Pekanbaru",
-    program: "Science",
-    location: "Pekanbaru, Indonesia",
-    start: "Jul 2017",
-    end: "May 2020",
-    logo: "Man2.jpeg",
-    bullets: ["Science track."],
-  },
-];
+import { EDUCATIONS } from "@/lib/config";
 
 export default function Education() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
@@ -72,14 +31,14 @@ export default function Education() {
               }}
             >
               {/* Logo */}
-              <div className="relative h-16 w-16 md:h-20 md:w-20 shrink-0 overflow-hidden rounded-lg ring-1 ring-border bg-white">
-                {ed.logo && (
+              <div className="relative flex h-16 w-16 md:h-20 md:w-20 shrink-0 items-center justify-center overflow-hidden rounded-lg border bg-muted/50">
+                {ed.logo ? (
                   <>
                     {ed.link ? (
                       <Link
                         href={ed.link}
                         target="_blank"
-                        className="block h-full w-full"
+                        className="relative block h-full w-full"
                       >
                         <Image
                           src={`/assets/${ed.logo}`}
@@ -104,7 +63,7 @@ export default function Education() {
                       />
                     )}
                   </>
-                )}
+                ) : null}
               </div>
 
               {/* Details */}

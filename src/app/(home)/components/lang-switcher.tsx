@@ -8,12 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
 import { DynamicIcon, IconName } from "lucide-react/dynamic";
-
-const THEMES_OPTION = [
-  { value: "system", label: "System", icon: "sun-moon" },
-  { value: "light", label: "Light", icon: "sun" },
-  { value: "dark", label: "Dark", icon: "moon" },
-];
+import { THEMES_OPTION } from "@/lib/config";
 
 export default function LangSwitcher() {
   const { theme, setTheme } = useTheme();

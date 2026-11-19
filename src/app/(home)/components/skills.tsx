@@ -1,43 +1,4 @@
-const SKILLS = [
-  {
-    label: "Programming Languages",
-    skill: ["JavaScript", "TypeScript"],
-  },
-  {
-    label: "Front-End",
-    skill: [
-      "React",
-      "React Native",
-      "Redux",
-      "HTML",
-      "CSS",
-      "Apollo Client",
-      "Next.js",
-    ],
-  },
-  {
-    label: "Back-End",
-    skill: [
-      "Node.js",
-      "Express.js",
-      "Sequelize",
-      "PostgreSQL",
-      "GraphQL",
-      "Apollo Server",
-      "MongoDB",
-      "Redis",
-      "REST API",
-    ],
-  },
-  {
-    label: "Languages",
-    skill: [
-      "Indonesian (Native)",
-      "English (Fluent)",
-      "Russian (Professional Working Proficiency)",
-    ],
-  },
-];
+import { SKILLS } from "@/lib/config";
 
 export default function Skills() {
   return (

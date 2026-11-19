@@ -8,7 +8,7 @@ export default function Header() {
         <h1>
           <strong>Rahmad Amri</strong>
         </h1>
-        <h2>Software Engineer</h2>
+        <h2>Full-Stack Developer</h2>
         <div className="flex gap-2 text-muted-foreground">
           <Link className="hover:underline" target="_blank" href="/cv.pdf">
             CV

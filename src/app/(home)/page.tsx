@@ -10,7 +10,7 @@ import { AnimateIn } from "@/components/animate-in";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col gap-6 p-6 md:p-12 max-w-[700px] mx-auto pb-16">
+    <main className="mx-auto flex max-w-[900px] flex-col gap-8 px-5 pb-16 pt-6 sm:px-8 md:gap-10 md:px-12 md:pt-12">
       <AnimateIn delay={0}>
         <div className="flex items-start gap-4 sm:gap-6">
           <AvatarImage />
